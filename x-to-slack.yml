@@ -1,0 +1,33 @@
+name: X to Slack
+
+on:
+  schedule:
+    # Offset from :00 — the top of the hour is the busiest slot on GitHub's
+    # shared scheduler and gets delayed the most.
+    - cron: "5,35 * * * *"
+  workflow_dispatch: # lets you trigger a run manually from the Actions tab
+
+# Never let two runs overlap — they'd both read the same LAST_SEEN_ID and
+# double-post.
+concurrency:
+  group: x-to-slack
+  cancel-in-progress: false
+
+jobs:
+  relay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch new posts and relay to Slack
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          LAST_SEEN_ID: ${{ vars.LAST_SEEN_ID }}
+        run: node scripts/x-to-slack.mjs

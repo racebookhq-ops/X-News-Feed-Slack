@@ -4,7 +4,7 @@ on:
   schedule:
     # Offset from :00 — the top of the hour is the busiest slot on GitHub's
     # shared scheduler and gets delayed the most.
-    - cron: "5,35 * * * *"
+    - cron: "1,31 * * * *"
   workflow_dispatch: # lets you trigger a run manually from the Actions tab
 
 # Never let two runs overlap — they'd both read the same LAST_SEEN_ID and

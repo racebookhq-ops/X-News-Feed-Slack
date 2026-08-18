@@ -1,6 +1,13 @@
 # One handle per line. The @ is optional. Lines starting with # are ignored.
 # Replace these with your 30 accounts.
 
-handle1
-handle2
-handle3
+@RVStewards
+@RNSWStewards
+@racing_nsw
+@QRICStewardsTHB
+@Racing_QLD
+@RacingAust
+@tmase04
+@DayAtTheTrack
+@RSAStewards
+@BHAStewards

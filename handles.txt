@@ -3,7 +3,6 @@
 
 @RVStewards
 @RNSWStewards
-@racing_nsw
 @QRICStewardsTHB
 @Racing_QLD
 @RacingAust
@@ -11,3 +10,5 @@
 @DayAtTheTrack
 @RSAStewards
 @BHAStewards
+@Danny_Weidler
+@TravTurf
